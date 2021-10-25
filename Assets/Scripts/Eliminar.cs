@@ -102,7 +102,7 @@ public class Eliminar : MonoBehaviour {
         string ruta = Application.dataPath +  "/../bitacora_201602782_201602723.txt";  // En carpeta Assets
         if(!File.Exists(ruta))
         {
-            File.WriteAllText(ruta, "            ---> Bitacora - Proyecto IA1 <---\n\n");
+            File.WriteAllText(ruta, "            Cliente: twitch.tv/k7droid\n\n");
         }
         File.AppendAllText(ruta, msj);
     }

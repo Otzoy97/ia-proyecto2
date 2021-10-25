@@ -9,7 +9,7 @@ using System.IO;
 public class Crear : MonoBehaviour
 {
 
-    public Dropdown dPisos, dSofa, dEscritorio, dSilla, dMesa, dLampara;
+    public Dropdown dPisos, dSofa, dEscritorio, dSilla, dMesa, dLibrera;
     public GameObject Alert;
     public Text txtAlert;
 
@@ -29,7 +29,7 @@ public class Crear : MonoBehaviour
         this.dMesa.AddOptions(new List<string> {
             "Superior izquierda","Superior derecha",
             "Centro", "Inferior izquierda", "Inferior derecha"});
-        this.dLampara.AddOptions(new List<string> {
+        this.dLibrera.AddOptions(new List<string> {
             "Superior izquierda","Superior derecha",
             "Centro", "Inferior izquierda", "Inferior derecha"});
     }
@@ -61,9 +61,9 @@ public class Crear : MonoBehaviour
         string escritorio = this.dEscritorio.captionText.text;
         string silla = this.dSilla.captionText.text;
         string mesa = this.dMesa.captionText.text;
-        string lampara = this.dLampara.captionText.text;
+        string librera = this.dLibrera.captionText.text;
         // Verifica que no haya duplicados
-        var tempList = new List<string> { sofa, escritorio, silla, mesa, lampara };
+        var tempList = new List<string> { sofa, escritorio, silla, mesa, librera };
         //IEnumerable<string> duplicados = tempList.GroupBy(x => y).Where(g => g.Count() > 1).Select(x => x.Key);
         if (tempList.Count != tempList.Distinct().Count())
         {
@@ -74,37 +74,37 @@ public class Crear : MonoBehaviour
 
         if (!Principal.Espacios.ContainsKey("1"))
         {
-            Principal.Espacios.Add("1", new string[] { piso, sofa, escritorio, silla, mesa, lampara });
+            Principal.Espacios.Add("1", new string[] { piso, sofa, escritorio, silla, mesa, librera });
             Principal.index.Add(1);
             newAccion("[ACCION] El usuario creó espacio 1\n");
         }
         else if (!Principal.Espacios.ContainsKey("2"))
         {
-            Principal.Espacios.Add("2", new string[] { piso, sofa, escritorio, silla, mesa, lampara });
+            Principal.Espacios.Add("2", new string[] { piso, sofa, escritorio, silla, mesa, librera });
             Principal.index.Add(2);
             newAccion("[ACCION] El usuario creó espacio 2\n");
         }
         else if (!Principal.Espacios.ContainsKey("3"))
         {
-            Principal.Espacios.Add("3", new string[] { piso, sofa, escritorio, silla, mesa, lampara });
+            Principal.Espacios.Add("3", new string[] { piso, sofa, escritorio, silla, mesa, librera });
             Principal.index.Add(3);
             newAccion("[ACCION] El usuario creó espacio 3\n");
         }
         else if (!Principal.Espacios.ContainsKey("4"))
         {
-            Principal.Espacios.Add("4", new string[] { piso, sofa, escritorio, silla, mesa, lampara });
+            Principal.Espacios.Add("4", new string[] { piso, sofa, escritorio, silla, mesa, librera });
             Principal.index.Add(4);
             newAccion("[ACCION] El usuario creó espacio 4\n");
         }
         else if (!Principal.Espacios.ContainsKey("5"))
         {
-            Principal.Espacios.Add("5", new string[] { piso, sofa, escritorio, silla, mesa, lampara });
+            Principal.Espacios.Add("5", new string[] { piso, sofa, escritorio, silla, mesa, librera });
             Principal.index.Add(5);
             newAccion("[ACCION] El usuario creó espacio 5\n");
         }
         else
         {
-            Principal.Espacios.Add("6", new string[] { piso, sofa, escritorio, silla, mesa, lampara });
+            Principal.Espacios.Add("6", new string[] { piso, sofa, escritorio, silla, mesa, librera });
             Principal.index.Add(6);
             newAccion("[ACCION] El usuario creó espacio 6\n");
         }
@@ -133,7 +133,7 @@ public class Crear : MonoBehaviour
         string ruta = Application.dataPath + "/../bitacora_201602782_201602723.txt";  // En carpeta Assets
         if (!File.Exists(ruta))
         {
-            File.WriteAllText(ruta, "            ---> Bitacora - Proyecto IA1 <---\n\n");
+            File.WriteAllText(ruta, "            Cliente: twitch.tv/k7droid\n\n");
         }
         File.AppendAllText(ruta, msj);
     }

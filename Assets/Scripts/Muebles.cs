@@ -4,19 +4,16 @@ using UnityEngine.SceneManagement;
 using UnityEngine;
 
 public class Muebles : MonoBehaviour {
-    public GameObject piso1;
-    public GameObject piso2;
-    public GameObject piso3;
-    public Light luz;
+    public GameObject piso1, piso2, piso3, piso4, piso5, piso6;
     
     void Awake() {
         piso1.gameObject.SetActive(false);
         piso2.gameObject.SetActive(false);
         piso3.gameObject.SetActive(false);
-            
-        //piso1.transform.GetChild(0).gameObject;
-        //piso1.transform.GetChild(1).gameObject.transform.position = new Vector3(-5.3f, 2.2f, 5f);
-        //piso1.transform.GetChild(1).transform.Rotate(90.0f, 0.0f, 0.0f, Space.Self)= new Vector3(-5.3f, 2.2f, 5f);
+        piso4.gameObject.SetActive(false);
+        piso5.gameObject.SetActive(false);
+        piso6.gameObject.SetActive(false);
+
         foreach (var esc in Principal.Espacios) {
             string[] espacio = (string[]) esc.Value;
             switch(espacio[0]) {
@@ -26,26 +23,18 @@ public class Muebles : MonoBehaviour {
                 case "Piso 2":
                     establecerParametros(piso2, espacio, "Piso 2");
                     break;
-                default:
-                    establecerParametros(piso3, espacio, "Piso 3");
+                case "Piso 3":
+                    establecerParametros(piso2, espacio, "Piso 3");
                     break;
-            }
-        }
-    }
-
-    public void setLight(int id){
-        foreach (var esc in Principal.Espacios) {
-            string[] espacio = (string[]) esc.Value;
-
-            if(espacio[0].Equals("Piso "+id)) {
-                if(espacio[1].Equals("Azul")){
-                    luz.color = Color.blue;
-                }else if(espacio[1].Equals("Verde")){
-                    luz.color = Color.green;
-                }else{
-                    luz.color = Color.red;
-                }
-                break;
+                case "Piso 4":
+                    establecerParametros(piso2, espacio, "Piso 4");
+                    break;
+                case "Piso 5":
+                    establecerParametros(piso2, espacio, "Piso 5");
+                    break;
+                default:
+                    establecerParametros(piso3, espacio, "Piso 6");
+                    break;
             }
         }
     }
