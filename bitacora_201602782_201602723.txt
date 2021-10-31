@@ -1,0 +1,6 @@
+            Cliente: twitch.tv/k7droid
+
+[ERROR] Se intentó colocar dos muebles en una misma posición
+[ACCION] El usuario creó espacio 1
+[ACCION] El usuario creó espacio 1
+[ACCION] El usuario creó espacio 1

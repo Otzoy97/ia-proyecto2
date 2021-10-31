@@ -5,50 +5,52 @@ using UnityEngine;
 
 public class Muebles : MonoBehaviour
 {
-    public GameObject piso1, piso2, piso3, piso4, piso5, piso6;
+    public GameObject[] pisos = new GameObject[6];// piso1, piso2, piso3, piso4, piso5, piso6; 
+    /// (X, Y, ANGLE)
+    private float[][][] vector =
+    {
+        new float[][]{new float[]{-4f,4f,135f},new float[]{4f,4f,-135f},new float[]{-4f,-4f,45f},new float[]{4f,-4f,-45f},new float[]{0f,0f,0f}},
+        new float[][]{new float[]{-5f,5.5f,0f},new float[]{5f,5.5f,0f},new float[]{-5f,-5.5f,0f},new float[]{5f,-5.5f,0f},new float[]{0f,0f,0f}},
+        new float[][]{new float[]{-5.5f,5.5f,135f},new float[]{5.5f,5.5f,-135f},new float[]{-5.5f,-5.5f,45f},new float[]{5.5f,-5.5f,-45f},new float[]{0f,0f,0f}},
+        new float[][]{new float[]{-6.4f,3.7f,0f},new float[]{6.4f,3.7f,0f},new float[]{-6.4f,-5.4f,0f},new float[]{6.4f,-5.4f,0f},new float[]{0f,0f,0f}},
+        new float[][]{new float[]{-6f,6f,0f},new float[]{6f,6f,0f},new float[]{-6f,-6f,0f},new float[]{6f,-6f,0f},new float[]{0f,0f,0f}}
+    };
+
     /*
      * Position: x, y, z    -> [0],[1],[2]
      * Rotation: x, y, z    -> [3],[4],[5]
      * Scale:    x, y, z    -> [6],[7],[8]
-     *
      */
     void Awake()
     {
-        piso1.gameObject.SetActive(false);
-        piso2.gameObject.SetActive(false);
-        piso3.gameObject.SetActive(false);
-        piso4.gameObject.SetActive(false);
-        piso5.gameObject.SetActive(false);
-        piso6.gameObject.SetActive(false);
-
         foreach (var esc in Principal.Espacios)
         {
             string[] espacio = (string[])esc.Value;
             switch (espacio[0])
             {
                 case "Piso 1":
-                    establecerParametros(piso1, espacio, "Piso 1");
+                    establecerParametros(pisos[0], espacio, "Piso 1", 0f);
                     break;
                 case "Piso 2":
-                    establecerParametros(piso2, espacio, "Piso 2");
+                    establecerParametros(pisos[1], espacio, "Piso 2", -20f);
                     break;
                 case "Piso 3":
-                    establecerParametros(piso3, espacio, "Piso 3");
+                    establecerParametros(pisos[2], espacio, "Piso 3", -40f);
                     break;
                 case "Piso 4":
-                    establecerParametros(piso4, espacio, "Piso 4");
+                    establecerParametros(pisos[3], espacio, "Piso 4", -60f);
                     break;
                 case "Piso 5":
-                    establecerParametros(piso5, espacio, "Piso 5");
+                    establecerParametros(pisos[4], espacio, "Piso 5", -80f);
                     break;
                 default:
-                    establecerParametros(piso6, espacio, "Piso 6");
+                    establecerParametros(pisos[5], espacio, "Piso 6", -100f);
                     break;
             }
         }
     }
 
-    private void establecerParametros(GameObject espacio, string[] escenario, string pActual)
+    private void establecerParametros(GameObject espacio, string[] escenario, string pActual, float offset)
     {
         // piso, sofa, escritorio, silla, mesa, librera
         // Debug.Log("============= " + pActual + " =============");
@@ -57,18 +59,12 @@ public class Muebles : MonoBehaviour
         Transform silla = espacio.transform.GetChild(2);
         Transform librera = espacio.transform.GetChild(3);
         Transform cafe = espacio.transform.GetChild(4);
-        List<double> posSilla = Silla(pActual, escenario[3].ToLower(), escenario[2].ToLower());
         //Posiciones
-        posicionar(sofa, escenario[1], "sofa");
-        posicionar(mesa, escenario[2], "mesa");
-        posicionar(silla, escenario[3], "silla");
-        posicionar(cafe, escenario[4], "cafe");
-        posicionar(librera, escenario[5], "librera");
-
-        //sofa.transform.position = new Vector3((float)posSilla[0], (float)posSilla[1], (float)posSilla[2]);
-        //cuadro.transform.Rotate((float) posCuadro[3], (float) posCuadro[4], (float) posCuadro[5], Space.Self);
-        //silla.transform.Rotate((float) posSilla[3], (float) posSilla[4], (float) posSilla[5], Space.Self);
-        //desktop.transform.Rotate((float) posDesktop[3], (float) posDesktop[4], (float) posDesktop[5], Space.Self);
+        posicionar(sofa, escenario[1], 0, offset);
+        posicionar(mesa, escenario[2], 1, offset);
+        posicionar(silla, escenario[3], 2, offset);
+        posicionar(librera, escenario[5], 3, offset);
+        posicionar(cafe, escenario[4], 4, offset);
 
         espacio.gameObject.SetActive(true);
     }
@@ -77,45 +73,33 @@ public class Muebles : MonoBehaviour
     /// Coloca el mueble en la posición especificada
     /// </summary>
     ///
-    private void posicionar(Transform mueble, string posicion, string nombre)
+    private void posicionar(Transform mueble, string posicion, int idxMueble, float offset)
     {
         switch (posicion.ToLower())
         {
             case "superior izquierda":
-                mueble.transform.position = new Vector3(-4, 0, 4);
+                mueble.transform.position = new Vector3(offset + vector[idxMueble][0][0], 0, vector[idxMueble][0][1]);
+                mueble.transform.Rotate(0, vector[idxMueble][0][2], 0, Space.Self);
                 break;
             case "superior derecha":
-                mueble.transform.position = new Vector3(4, 0, 4);
+                mueble.transform.position = new Vector3(offset + vector[idxMueble][1][0], 0, vector[idxMueble][1][1]);
+                mueble.transform.Rotate(0, vector[idxMueble][1][2], 0, Space.Self);
                 break;
             case "inferior izquierda":
-                mueble.transform.position = new Vector3(-4, 0, -4);
+                mueble.transform.position = new Vector3(offset + vector[idxMueble][2][0], 0, vector[idxMueble][2][1]);
+                mueble.transform.Rotate(0, vector[idxMueble][2][2], 0, Space.Self);
                 break;
             case "inferior derecha":
-                mueble.transform.position = new Vector3(4, 0, -4);
+                mueble.transform.position = new Vector3(offset + vector[idxMueble][3][0], 0, vector[idxMueble][3][1]);
+                mueble.transform.Rotate(0, vector[idxMueble][3][2], 0, Space.Self);
                 break;
             case "centro":
-                mueble.transform.position = new Vector3(0, 0, 0);
+                mueble.transform.position = new Vector3(offset + vector[idxMueble][4][0], 0, vector[idxMueble][4][1]);
+                mueble.transform.Rotate(0, vector[idxMueble][4][2], 0, Space.Self);
                 break;
         }
     }
 
-    // public void rotar(Transform mueble, string nombre)
-    // {
-    //     switch (posicion.ToLower())
-    //     {
-    //         case "sofa":
-    //             mueble.transform.Rotate
-    //             break;
-    //         case "mesa":
-    //             break;
-    //         case "silla":
-    //             break;
-    //         case "librera":
-    //             break;
-    //         case "cafe":
-    //             break;
-    //     }
-    // }
     public void GoScene()
     {
         SceneManager.LoadScene("MenuPrincipal");
