@@ -5574,7 +5574,7 @@ MonoBehaviour:
   dEscritorio: {fileID: 658384315}
   dSilla: {fileID: 25187640}
   dMesa: {fileID: 411498940}
-  dLampara: {fileID: 592552105}
+  dLibrera: {fileID: 592552105}
   Alert: {fileID: 714206028}
   txtAlert: {fileID: 1639193618}
 --- !u!4 &1316931215
