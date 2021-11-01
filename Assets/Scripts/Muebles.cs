@@ -9,7 +9,7 @@ public class Muebles : MonoBehaviour
     /// (X, Y, ANGLE)
     private float[][][] vector =
     {
-        new float[][]{new float[]{-4f,4f,135f},new float[]{4f,4f,-135f},new float[]{-4f,-4f,45f},new float[]{4f,-4f,-45f},new float[]{0f,0f,0f}},
+        new float[][]{new float[]{-4.5f,4.5f,135f},new float[]{4.5f,4.5f,-135f},new float[]{-4.5f,-4.5f,45f},new float[]{4.5f,-4.5f,-45f},new float[]{0f,0f,0f}},
         new float[][]{new float[]{-5f,5.5f,0f},new float[]{5f,5.5f,0f},new float[]{-5f,-5.5f,0f},new float[]{5f,-5.5f,0f},new float[]{0f,0f,0f}},
         new float[][]{new float[]{-5.5f,5.5f,135f},new float[]{5.5f,5.5f,-135f},new float[]{-5.5f,-5.5f,45f},new float[]{5.5f,-5.5f,-45f},new float[]{0f,0f,0f}},
         new float[][]{new float[]{-6.4f,3.7f,0f},new float[]{6.4f,3.7f,0f},new float[]{-6.4f,-5.4f,0f},new float[]{6.4f,-5.4f,0f},new float[]{0f,0f,0f}},
@@ -23,6 +23,9 @@ public class Muebles : MonoBehaviour
      */
     void Awake()
     {
+        for (int i = 0 ; i < 6;i++) {
+            pisos[i].gameObject.SetActive(false);
+        }        
         foreach (var esc in Principal.Espacios)
         {
             string[] espacio = (string[])esc.Value;
@@ -80,22 +83,27 @@ public class Muebles : MonoBehaviour
             case "superior izquierda":
                 mueble.transform.position = new Vector3(offset + vector[idxMueble][0][0], 0, vector[idxMueble][0][1]);
                 mueble.transform.Rotate(0, vector[idxMueble][0][2], 0, Space.Self);
+                Debug.Log(posicion + " x:" + vector[idxMueble][0][0] + " z:" + vector[idxMueble][0][1] + " yR:" + vector[idxMueble][0][2]);
                 break;
             case "superior derecha":
                 mueble.transform.position = new Vector3(offset + vector[idxMueble][1][0], 0, vector[idxMueble][1][1]);
                 mueble.transform.Rotate(0, vector[idxMueble][1][2], 0, Space.Self);
+                Debug.Log(posicion + " x:" + vector[idxMueble][1][0] + " z:" + vector[idxMueble][1][1] + " yR:" + vector[idxMueble][1][2]);
                 break;
             case "inferior izquierda":
                 mueble.transform.position = new Vector3(offset + vector[idxMueble][2][0], 0, vector[idxMueble][2][1]);
                 mueble.transform.Rotate(0, vector[idxMueble][2][2], 0, Space.Self);
+                Debug.Log(posicion + " x:" + vector[idxMueble][2][0] + " z:" + vector[idxMueble][2][1] + " yR:" + vector[idxMueble][2][2]);
                 break;
             case "inferior derecha":
                 mueble.transform.position = new Vector3(offset + vector[idxMueble][3][0], 0, vector[idxMueble][3][1]);
                 mueble.transform.Rotate(0, vector[idxMueble][3][2], 0, Space.Self);
+                Debug.Log(posicion + " x:" + vector[idxMueble][3][0] + " z:" + vector[idxMueble][3][1] + " yR:" + vector[idxMueble][3][2]);
                 break;
             case "centro":
                 mueble.transform.position = new Vector3(offset + vector[idxMueble][4][0], 0, vector[idxMueble][4][1]);
                 mueble.transform.Rotate(0, vector[idxMueble][4][2], 0, Space.Self);
+                Debug.Log(posicion + " x:" + vector[idxMueble][4][0] + " z:" + vector[idxMueble][4][1] + " yR:" + vector[idxMueble][4][2]);
                 break;
         }
     }

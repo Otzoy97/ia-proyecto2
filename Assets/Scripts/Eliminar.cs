@@ -38,19 +38,19 @@ public class Eliminar : MonoBehaviour
             switch (escena[0])
             {
                 case "Piso 1":
-                    image.sprite = Resources.Load<Sprite>("dragon");
+                    image.sprite = Resources.Load<Sprite>("floor1");
                     break;
                 case "Piso 2":
-                    image.sprite = Resources.Load<Sprite>("ojo");
+                    image.sprite = Resources.Load<Sprite>("floor2");
                     break;
                 case "Piso 3":
-                    image.sprite = Resources.Load<Sprite>("yu-gi-oh");
+                    image.sprite = Resources.Load<Sprite>("floor3");
                     break;
                 case "Piso 4":
-                    image.sprite = Resources.Load<Sprite>("batman");
+                    image.sprite = Resources.Load<Sprite>("floor4");
                     break;
                 case "Piso 5":
-                    image.sprite = Resources.Load<Sprite>("garfield");
+                    image.sprite = Resources.Load<Sprite>("floor5");
                     break;
                 case "Piso 6":
                     image.sprite = Resources.Load<Sprite>("usac");

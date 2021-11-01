@@ -10,13 +10,18 @@ public class Crear : MonoBehaviour
 {
 
     public Dropdown dPisos, dSofa, dEscritorio, dSilla, dMesa, dLibrera;
-    public GameObject Alert;
+    public GameObject Alert, imgPanel;
     public Text txtAlert;
 
     void Awake()
     {
         //Agregar a los dropdown
+        //this.dPisos = GetComponent<DropDown>();
         this.dPisos.AddOptions(new List<string> { "Piso 1", "Piso 2", "Piso 3", "Piso 4", "Piso 5", "Piso 6" });
+        this.dPisos.onValueChanged.AddListener(delegate
+        {
+            DropdownValueChanged(dPisos);
+        });
         this.dSofa.AddOptions(new List<string> {
             "Superior izquierda","Superior derecha",
             "Centro", "Inferior izquierda", "Inferior derecha"});
@@ -32,6 +37,35 @@ public class Crear : MonoBehaviour
         this.dLibrera.AddOptions(new List<string> {
             "Superior izquierda","Superior derecha",
             "Centro", "Inferior izquierda", "Inferior derecha"});
+        Image image = imgPanel.transform.GetChild(0).GetComponent<Image>();
+        image.sprite = Resources.Load<Sprite>("floor1");
+    }
+
+    void DropdownValueChanged(Dropdown change)
+    {
+        Image image = imgPanel.transform.GetChild(0).GetComponent<Image>();
+        switch (change.captionText.text)
+        {
+            case "Piso 1":
+                image.sprite = Resources.Load<Sprite>("floor1");
+                break;
+            case "Piso 2":
+                image.sprite = Resources.Load<Sprite>("floor2");
+                break;
+            case "Piso 3":
+                image.sprite = Resources.Load<Sprite>("floor3");
+                break;
+            case "Piso 4":
+                image.sprite = Resources.Load<Sprite>("floor4");
+                break;
+            case "Piso 5":
+                image.sprite = Resources.Load<Sprite>("floor5");
+                break;
+            case "Piso 6":
+                image.sprite = Resources.Load<Sprite>("usac");
+                break;
+        }
+        image.enabled = true;
     }
 
     public void CrearEspacio()
@@ -56,7 +90,7 @@ public class Crear : MonoBehaviour
                 return;
             }
         }
-        
+
         string sofa = this.dSofa.captionText.text;
         string escritorio = this.dEscritorio.captionText.text;
         string silla = this.dSilla.captionText.text;

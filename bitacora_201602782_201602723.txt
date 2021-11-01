@@ -4,3 +4,95 @@
 [ACCION] El usuario creó espacio 1
 [ACCION] El usuario creó espacio 1
 [ACCION] El usuario creó espacio 1
+[ACCION] El usuario creó espacio 1
+[ACCION] El usuario creó espacio 2
+[ERROR] Se intentó colocar dos muebles en una misma posición
+[ACCION] El usuario creó espacio 3
+[ACCION] El usuario creó espacio 1
+[ACCION] El usuario creó espacio 2
+[ACCION] El usuario creó espacio 3
+[ACCION] El usuario creó espacio 4
+[ACCION] El usuario creó espacio 5
+[ACCION] El usuario creó espacio 6
+[ACCION] El usuario creó espacio 1
+[ACCION] El usuario creó espacio 2
+[ACCION] El usuario creó espacio 3
+[ACCION] El usuario creó espacio 4
+[ACCION] El usuario creó espacio 5
+[ACCION] El usuario creó espacio 6
+[ACCION] El usuario elimino espacio 6
+[ACCION] El usuario creó espacio 1
+[ACCION] El usuario visualizo los espacios
+[ACCION] El usuario visualizo los espacios
+[ACCION] El usuario visualizo los espacios
+[ERROR] Se intentó eliminar espacio sin seleccionarlo
+[ACCION] El usuario visualizo los espacios
+[ACCION] El usuario visualizo los espacios
+[ACCION] El usuario creó espacio 1
+[ACCION] El usuario visualizo los espacios
+[ACCION] El usuario editó espacio 1
+[ACCION] El usuario visualizo los espacios
+[ACCION] El usuario editó espacio 1
+[ACCION] El usuario visualizo los espacios
+[ACCION] El usuario creó espacio 1
+[ACCION] El usuario visualizo los espacios
+[ACCION] El usuario editó espacio 1
+[ACCION] El usuario visualizo los espacios
+[ACCION] El usuario editó espacio 1
+[ACCION] El usuario visualizo los espacios
+[ACCION] El usuario editó espacio 1
+[ACCION] El usuario visualizo los espacios
+[ACCION] El usuario editó espacio 1
+[ACCION] El usuario visualizo los espacios
+[ACCION] El usuario creó espacio 1
+[ACCION] El usuario visualizo los espacios
+[ACCION] El usuario creó espacio 1
+[ACCION] El usuario visualizo los espacios
+[ERROR] Se intentó colocar dos muebles en una misma posición
+[ACCION] El usuario creó espacio 1
+[ACCION] El usuario visualizo los espacios
+[ACCION] El usuario creó espacio 1
+[ACCION] El usuario creó espacio 1
+[ACCION] El usuario creó espacio 1
+[ERROR] Se intentó colocar dos muebles en una misma posición
+[ACCION] El usuario creó espacio 2
+[ERROR] Se intentó colocar dos muebles en una misma posición
+[ACCION] El usuario editó espacio 2
+[ACCION] El usuario editó espacio 2
+[ACCION] El usuario editó espacio 1
+[ACCION] El usuario creó espacio 1
+[ACCION] El usuario editó espacio 1
+[ACCION] El usuario creó espacio 1
+[ACCION] El usuario creó espacio 2
+[ACCION] El usuario creó espacio 1
+[ACCION] El usuario creó espacio 1
+[WARN] Se accedió a editar espacios, pero no hay ninguno creado
+[ERROR] Se intentó colocar dos muebles en una misma posición
+[ACCION] El usuario creó espacio 1
+[ACCION] El usuario visualizo los espacios
+[ERROR] Se intentó colocar dos muebles en una misma posición
+[ACCION] El usuario creó espacio 1
+[ERROR] Se intentó utilizar el mismo piso en 2 espacios distintos
+[ACCION] El usuario creó espacio 2
+[ERROR] Se intentó utilizar el mismo piso en 2 espacios distintos
+[ACCION] El usuario creó espacio 3
+[ACCION] El usuario creó espacio 4
+[ACCION] El usuario creó espacio 5
+[ACCION] El usuario creó espacio 6
+[ERROR] Se intentó registrar más de 6 espacios
+[ERROR] El Piso 5 ya se está usando.
+[WARN] Se accedió a editar espacios, pero no hay ninguno creado
+[ACCION] El usuario creó espacio 1
+[ACCION] El usuario creó espacio 2
+[ACCION] El usuario creó espacio 3
+[ACCION] El usuario creó espacio 4
+[ACCION] El usuario creó espacio 5
+[ACCION] El usuario creó espacio 6
+[ERROR] Se intentó colocar dos muebles en una misma posición
+[ERROR] El Piso 4 ya se está usando. Elimine el espacio 4
+[ACCION] El usuario visualizo los espacios
+[ACCION] El usuario creó espacio 1
+[ACCION] El usuario creó espacio 2
+[ACCION] El usuario creó espacio 3
+[ACCION] El usuario creó espacio 4
+[ACCION] El usuario visualizo los espacios
